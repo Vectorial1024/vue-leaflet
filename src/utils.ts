@@ -18,6 +18,22 @@ export type PropertyMap = {
 
 export type FunctionMap = Record<string, ((...args: unknown[]) => unknown) | undefined>
 
+/**
+ * Represents a function map in which the signature and the return type of the functions are not important.
+ * This can be helpful when linking up event handlers.
+ * 
+ * @see UnknownFunctionMap when `unknown` is preferred.
+ */
+export type AnyFunctionMap = Record<string, Function | undefined>
+
+/**
+ * Represents a function map in which the contained functions are essentially unknown.
+ * This indicates care must be taken when using the contained functions.
+ * 
+ * @see AnyFunctionMap when `any` / `Function` is preferred.
+ */
+export type UnknownFunctionMap = Record<string, ((...args: unknown[]) => unknown) | undefined>
+
 export type LeafletWrapper = {
     (...args: unknown[]): unknown
     wrapped: Ref<(...args: unknown[]) => unknown>
