@@ -3,5 +3,10 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    /* Common type-checking */
+    // vite provides types but is not under @types, so their types cannot be discovered
+    "types": ["node", "vite/client"]
+  }
 }
